@@ -50,7 +50,9 @@ void	ft_putnbr_base(int nbr, char *base)
 
 	i = 0;
 	lbase = ft_lbase(base);
-	if (nbr < 0)
+	if (nbr == 0 && lbase != 0)
+		ft_putchar(base[0]);
+	if (nbr < 0 && lbase != 0)
 	{
 		nbr = nbr * -1;
 		ft_putchar(45);
