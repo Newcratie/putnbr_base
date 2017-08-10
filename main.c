@@ -1,7 +1,13 @@
-#include <stdio.h>
+#include <unistd.h>
 #include <stdlib.h>
 
 void	ft_putnbr_base(int nbr, char *base);
+
+char	ft_putchar(char c)
+{
+	write(1, &c, 1);
+	return (0);
+}
 
 int	main(int argc, char **argv)
 {	
