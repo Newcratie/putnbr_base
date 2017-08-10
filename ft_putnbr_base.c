@@ -1,16 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: vimucchi <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/09 14:55:09 by vimucchi          #+#    #+#             */
-/*   Updated: 2017/08/09 21:39:32 by vimucchi         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
 int		ft_putchar(char c)
 {
@@ -47,6 +37,29 @@ char	*ft_strstr(char *str, char *to_find)
 	}	
 	return (0);
 }
+
+int		ft_double_occ(char *s1, char *s2, int conf)
+{
+	int		i;
+
+	i = 0;
+	printf("\nINIT:  conf = %d, i = %d, s1: %s, s2: %s\n",conf, i, &s1[conf], s2);
+
+	while (s1[i + conf])
+	{
+		printf("conf = %d, i = %d, s1: %c, s2: %c,\n",conf, i,s1[i + conf],s2[i]);
+		if (s1[i + conf] == s2[i])
+		{
+			return (1);
+
+		}
+		i++;
+	}
+	if (s1[conf] != '\0')
+		return(ft_double_occ(s1, s2, conf + 1));
+	return (0);
+}
+
 
 
 int		ft_lbase(char *base)
@@ -94,10 +107,4 @@ void	ft_putnbr_base(int nbr, char *base)
 		ft_putchar(base[nb_conv[i - 1]]);
 		i--;
 	}
-}
-
-int		main(void)
-{
-	ft_putnbr_base(-544545, "0123556789ABCDEF");
-	return (0);
 }
