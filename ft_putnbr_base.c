@@ -47,14 +47,13 @@ void	ft_putnbr_base(int nbr, char *base)
 	int i;
 	int nb_conv[64];
 	int lbase;
-	int neg;
 
 	i = 0;
 	lbase = ft_lbase(base);
 	if (nbr < 0)
 	{
 		nbr = nbr * -1;
-		neg = 1;
+		ft_putchar(45);
 	}
 	while (nbr > 0 && lbase != 0)
 	{
@@ -62,11 +61,6 @@ void	ft_putnbr_base(int nbr, char *base)
 		nbr = nbr / lbase;
 		i++;
 	}
-	if (neg == 1 && lbase != 0)
-		ft_putchar(45);
 	while (i > 0 && lbase != 0)
-	{
-		ft_putchar(base[nb_conv[i - 1]]);
-		i--;
-	}
+		ft_putchar(base[nb_conv[i-- - 1]]);
 }
