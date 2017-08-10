@@ -8,6 +8,18 @@ int		ft_putchar(char c)
 	return (0);
 }
 
+void	ft_putstr(char *str)
+{
+	int		i;
+
+	i = 0;
+	while (str[i])
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+}
+
 int		ft_double_occ(char *s1, char *s2, int conf)
 {
 	int		i;
@@ -47,21 +59,23 @@ void	ft_putnbr_base(int nbr, char *base)
 	int i;
 	int nb_conv[64];
 	int lbase;
+	unsigned int nbr2;
 
-	i = 0;
 	lbase = ft_lbase(base);
-	if (nbr == 0 && lbase != 0)
-		ft_putchar(base[0]);
+	i = 0;
 	if (nbr < 0 && lbase != 0)
 	{
-		nbr = nbr * -1;
+		nbr2 = nbr * -1;
 		ft_putchar(45);
 	}
-	while (nbr > 0 && lbase != 0)
+	else
+		nbr2 = nbr;
+	if (nbr2 == 0 && lbase != 0)
+		ft_putchar(base[0]);
+	while (nbr2 > 0 && lbase != 0)
 	{
-		nb_conv[i] = nbr % lbase;
-		nbr = nbr / lbase;
-		i++;
+		nb_conv[i++] = nbr2 % lbase;
+		nbr2 = nbr2 / lbase;
 	}
 	while (i > 0 && lbase != 0)
 		ft_putchar(base[nb_conv[i-- - 1]]);
