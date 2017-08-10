@@ -1,16 +1,8 @@
+void				ft_putchar(char c);
 
-#include <unistd.h>
-#include <stdio.h>
-
-int		ft_putchar(char c)
+void				ft_putstr(char *str)
 {
-	write(1, &c, 1);
-	return (0);
-}
-
-void	ft_putstr(char *str)
-{
-	int		i;
+	int				i;
 
 	i = 0;
 	while (str[i])
@@ -20,9 +12,9 @@ void	ft_putstr(char *str)
 	}
 }
 
-int		ft_double_occ(char *s1, char *s2, int conf)
+int					ft_double_occ(char *s1, char *s2, int conf)
 {
-	int		i;
+	int				i;
 
 	i = 0;
 	while (s1[i + conf])
@@ -36,9 +28,9 @@ int		ft_double_occ(char *s1, char *s2, int conf)
 	return (0);
 }
 
-int		ft_lbase(char *base)
+int					ft_lbase(char *base)
 {
-	int i;
+	int				i;
 
 	i = 0;
 	while (base[i])
@@ -54,12 +46,12 @@ int		ft_lbase(char *base)
 	return (i);
 }
 
-void	ft_putnbr_base(int nbr, char *base)
+void				ft_putnbr_base(int nbr, char *base)
 {
-	int i;
-	int nb_conv[64];
-	int lbase;
-	unsigned int nbr2;
+	int				i;
+	int				nb_conv[64];
+	int				lbase;
+	unsigned int	nbr2;
 
 	lbase = ft_lbase(base);
 	i = 0;
